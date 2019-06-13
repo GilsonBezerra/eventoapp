@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+
+<title>Gestão Festas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+
+
+
+</head>
+<body>
+
+	<div class="container center">
+		<h1>Lista de Eventos</h1>
+		<h3>
+
+			<a href="/cadastrarEvento" class="waves-effect waves-light btn"><i
+				class="material-icons left"></i>Cadastrar evento
+				</a>
+
+		</h3>
+
+		<div>
+			<div class="row">
+
+				<table>
+
+					<tr>
+
+						<th>Nome do Evento</th>
+						<th>Local</th>
+						<th>Data</th>
+						<th>Horario</th>
+
+					</tr>
+
+					<tr th:each="evento : ${eventos}">
+
+						<td th:text="${evento.nome}"></td>
+						<td th:text="${evento.local}"></td>
+						<td th:text="${evento.data}"></td>
+						<td th:text="${evento.horario}"></td>
+					</tr>
+
+				</table>
+
+
+			</div>
+
+
+
+
+
+		</div>
+	</div>
+</body>
+</html>
