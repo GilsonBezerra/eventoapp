@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
 
@@ -16,6 +17,7 @@
 
 	<div class="container center">
 		<h1>Lista de Eventos</h1>
+		
 		<h3>
 
 			<a href="/cadastrarEvento" class="waves-effect waves-light btn"><i
@@ -35,6 +37,9 @@
 						<th>Local</th>
 						<th>Data</th>
 						<th>Horario</th>
+						<th>Valor R$</th>
+						<th>Deletar</th>
+						
 
 					</tr>
 
@@ -44,9 +49,13 @@
 						<td th:text="${evento.local}"></td>
 						<td th:text="${evento.data}"></td>
 						<td th:text="${evento.horario}"></td>
+						<td th:text="${evento.valor}"></td>
+						<td><a th:href="${(#mvc.url('EC#deletarEvento').arg(0, evento.id)).build()}"><i class="material-icons">delete</i></a></td>
+						
 					</tr>
 
 				</table>
+				
 
 
 			</div>

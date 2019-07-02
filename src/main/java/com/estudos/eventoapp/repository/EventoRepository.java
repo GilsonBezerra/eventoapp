@@ -6,4 +6,10 @@ import com.estudos.eventoapp.models.Evento;
 
 public interface EventoRepository extends CrudRepository<Evento, String>{
 
+	Evento findById(Long id);
+
+	void deleteById(Long id);
+
+	
+
 }

@@ -2,6 +2,7 @@ package com.estudos.eventoapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,7 +14,7 @@ import com.estudos.eventoapp.repository.EventoRepository;
 public class EventoController {
 
 	@Autowired
-	private EventoRepository er;
+	EventoRepository er;
 
 	@RequestMapping(value = "/cadastrarEvento", method = RequestMethod.GET)
 	public String form() {
@@ -21,14 +22,16 @@ public class EventoController {
 		return "formEvento";
 	}
 
-	//*********************SALVA NO BANCO DE DADOS****************************************************
+	// *********************SALVA NO BANCO DE
+	// DADOS****************************************************
 	@RequestMapping(value = "/cadastrarEvento", method = RequestMethod.POST)
 	public String salvar(Evento evento) {
 		er.save(evento);
 		return "redirect:/eventos";
 	}
 
-	//********************CONSULTA O BANCO DE DADOS E RETORNA A LISTA ATUALIZADA NO BROWSER**********
+	// ********************CONSULTA O BANCO DE DADOS E RETORNA A LISTA ATUALIZADA NO
+	// BROWSER**********
 	@RequestMapping("/eventos")
 	public ModelAndView listaEventos(Evento evento) {
 		ModelAndView mv = new ModelAndView("index");
@@ -37,5 +40,19 @@ public class EventoController {
 
 		return mv;
 	}
+	
+	
+
+	@RequestMapping("/deletar")
+	public String deletarEvento(Long id) {
+		
+		Evento evento = er.findById(id);
+	
+		er.delete(evento);
+
+		return "redirect:/eventos";
+	}
+
+	
 
 }

@@ -18,15 +18,17 @@ public class Evento {
 	private String local;
 	private String data;
 	private String horario;
+	private Double valor;
 	
 	public Evento() {}
 	
-	public Evento(Long id, String nome, String local, String data, String horario) {
+	public Evento(Long id, String nome, String local, String data, String horario, Double valor) {
 		this.id = id;
 		this.nome = nome;
 		this.local = local;
 		this.data = data;
 		this.horario = horario;
+		this.valor = valor;
 		
 	}
 	
@@ -59,6 +61,14 @@ public class Evento {
 	}
 	public void setHorario(String horario) {
 		this.horario = horario;
+	}
+
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
 	}
 	
 	
