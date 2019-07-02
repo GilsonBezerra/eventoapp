@@ -42,7 +42,7 @@ public class EventoController {
 	}
 	
 	
-//DELETAR UM EVENTO DO BANCO DE DADOS
+//DELETAR UM EVENTO DO BANCO DE DADOS SEM STRESS
 	@RequestMapping("/deletar")
 	public String deletarEvento(Long id) {
 		
